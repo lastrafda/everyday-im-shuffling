@@ -1,9 +1,9 @@
 import express, { Express } from "express"
-import { deckRouters } from "./routers/deck";
+import { deckRouters } from "./routers/deck"
 import config from "config"
 
 const port: number = config.get("port")
-const app: Express = express();
+const app: Express = express()
 app.use(express.json())
 app.use(
   express.urlencoded({
