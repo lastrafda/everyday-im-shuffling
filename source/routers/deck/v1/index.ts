@@ -1,9 +1,9 @@
 import { IRouter, Router, Request, Response } from "express"
-import { getAShuffledDeck } from "../../../services/deck"
+import { deckService } from "../../../services"
 const deckRouterV1: IRouter = Router()
 
-deckRouterV1.get("/v1/", (_req: Request, res: Response) => {
-  const deck = getAShuffledDeck()
+deckRouterV1.get("/", (_req: Request, res: Response) => {
+  const deck = deckService.getAShuffledDeck()
   return res.send(deck).status(200)
 })
 

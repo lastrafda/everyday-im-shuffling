@@ -11,7 +11,7 @@ app.use(
   })
 )
 // routers
-app.use("/api/deck", deckRouters.v1)
+app.use("/v1/deck", deckRouters.v1)
 
 app.listen(port, () => {
   console.log(`Server running at port: ${port}`)
