@@ -5,5 +5,5 @@
 npm run dev
 
 # make a get request
-http :3308/api/deck/v1
+http :3308/api/decks/v1
 ```

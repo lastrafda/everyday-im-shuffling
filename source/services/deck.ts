@@ -11,7 +11,7 @@ const Card = (suit: Suit, value: CardValue): ICard => {
 /**
  *  Generates a brand new Deck 🃏
  */
-const generateABrandNewDeck = (): Deck => {
+const generateNewDeck = (): Deck => {
   return Object.keys(Suit)
     .map((suit) =>
       Object.keys(CardValue).map((value) =>
@@ -34,8 +34,8 @@ const shuffleDeck = (engine: Engine, random: typeof Random) => {
     // fisher-yates algorithm implementation
     for (let i = newDeck.length - 1; i >= 0; i--) {
       const pick = randomWrapper.integer(0, i)
-      // swap without creating a temp variable using array destructuring
-      ;[newDeck[pick], newDeck[i]] = [newDeck[i], newDeck[pick]]
+        // swap without creating a temp variable using array destructuring
+        ;[newDeck[pick], newDeck[i]] = [newDeck[i], newDeck[pick]]
     }
     return newDeck
   }
@@ -44,8 +44,8 @@ const shuffleDeck = (engine: Engine, random: typeof Random) => {
 /**
  * Get a shuffled deck
  */
-const getAShuffledDeck = () => {
-  return shuffleDeck(nodeCrypto, Random)(generateABrandNewDeck())
+const getShuffledDeck = () => {
+  return shuffleDeck(nodeCrypto, Random)(generateNewDeck())
 }
 
-export { Card, generateABrandNewDeck, shuffleDeck, getAShuffledDeck }
+export { Card, generateNewDeck as generateABrandNewDeck, shuffleDeck, getShuffledDeck }
